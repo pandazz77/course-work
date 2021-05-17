@@ -6,7 +6,6 @@
 
 SOCKET MakeSocket(char *ip_source,int wPort)
 {
-	//printf("port: %d\n",wPort);
 	SOCKET sock = (SOCKET)NULL;
 	SOCKADDR_IN Addr = {0};
 	
@@ -71,17 +70,6 @@ int main( int argc, char ** argv)
 	
 
 	get_env_data(&ip_target,&wDstPort,&ip_source,&wSrcPort);
-	
-	/*
-	if( argc != 3)
-	{
-		printf( "Usage : udpchar [srcport] [dstport]\n");
-		return -1;
-	}
-	
-	wSrcPort = atoi(argv[1]);
-	wDstPort = atoi(argv[2]);
-	*/
 	
 	WSAStartup( MAKEWORD(2,2), &wsaData);
 	sock = MakeSocket(ip_source, wSrcPort);
