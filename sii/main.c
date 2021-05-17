@@ -38,7 +38,7 @@ int SendData( SOCKET sock, char *ip_target, int wDstPort,char message[]){
 		
 	sendto( sock, message, strlen(message),0,(SOCKADDR *)&SendAddr,sizeof(SendAddr));
 	
-	return 1; //true
+	return 1;
 }
 
 int inputf(void *p){
@@ -60,20 +60,8 @@ int main( int argc, char ** argv){
 	int wDstPort;
 	int wSrcPort;
 	
-
 	get_env_data(&ip_target,&wDstPort,&ip_source,&wSrcPort);
 
-
-	/*
-	if( argc != 3){
-		printf( "Usage : udpchar [srcport] [dstport]\n");
-		return -1;
-	}
-	
-	wSrcPort = atoi(argv[1]);
-	wDstPort = atoi(argv[2]);
-	*/
-	
 	WSAStartup( MAKEWORD(2,2), &wsaData);
 	sock = MakeSocket(ip_source, wSrcPort);
 	if(sock){
